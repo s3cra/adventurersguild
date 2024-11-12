@@ -2,9 +2,9 @@ package ru.dungeons.AdventurersGuild.controller;
 
 import characterData.Character;
 import characterData.statGrid;
-import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import ru.dungeons.AdventurersGuild.repository.CharacterRepositoryI;
 import ru.dungeons.AdventurersGuild.service.CharacterService;
 import serverEntities.Player;
 
@@ -17,7 +17,27 @@ public class CharacterController {
     private CharacterService service;
 
     @GetMapping
-    public List<Character> getCharacters(@RequestParam Player player){
-        return null;
+    public List<Character> getCharacters(){
+        return this.service.getCharacters();
+    }
+
+    @PutMapping("/new")
+    Character saveCharacter(@RequestBody Character character){
+        return this.service.saveCharacter(character);
+    }
+
+    @GetMapping("/{name}")
+    Character getCharacter(@PathVariable("name") String name){
+        return this.service.getCharacter(name);
+    }
+
+    @PostMapping("/update")
+    Character updateCharacter(@RequestBody Character character){
+        return this.service.updateCharacter(character);
+    }
+
+    @DeleteMapping("/delete{name}")
+    void deleteCharacter(@PathVariable("name") String name){
+        this.service.deleteCharacter(name);
     }
 }

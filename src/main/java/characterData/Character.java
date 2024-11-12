@@ -10,7 +10,6 @@ import stuff.Item;
 import stuff.Target;
 
 public class Character implements Target {
-    public static List<Character> characters = new ArrayList<>(); //temp
     String name;
     public String getName() {
         return this.name;
@@ -85,7 +84,6 @@ public class Character implements Target {
         this.ideals = _ideals;
         this.bonds = _bonds;
         this.flaws = _flaws;
-        characters.add(this); //temp
     }
 
     public void takeDamage() {
