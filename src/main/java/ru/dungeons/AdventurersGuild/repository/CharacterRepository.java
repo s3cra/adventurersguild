@@ -1,5 +1,8 @@
 package ru.dungeons.AdventurersGuild.repository;
 
+import characterData.chClass;
+import characterData.classes.Wizard;
+import characterData.races.Elf;
 import characterData.statGrid;
 import org.springframework.stereotype.Repository;
 import characterData.Character;
@@ -12,9 +15,8 @@ import java.util.Map;
 @Repository
 public class CharacterRepository implements CharacterRepositoryI {
 
-    List<Character> characters = List.of(new Character("bro", "Elf", "Wizard", new statGrid(
-            15,15,15,15,15,15
-    ), "","","",""));
+
+    List<Character> characters = new ArrayList<>();
 
     @Override
     public List<Character> getCharacters(){
@@ -37,8 +39,9 @@ public class CharacterRepository implements CharacterRepositoryI {
     public Character updateCharacter(Character character) {
         return characters.stream().filter(n -> n.getName().equals(character.getName()))
                 .findFirst().map(character1 -> {
-                    characters.set(characters.indexOf(character), character1);
-                    return character1;
+                    System.out.println(1231231231);
+                    characters.set(characters.indexOf(character1), character);
+                    return character;
                 }).orElse(null);
 
     }

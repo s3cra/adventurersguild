@@ -6,26 +6,22 @@ import static characterData.statGrid.sum;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
 import stuff.Item;
 import stuff.Target;
 
+@Getter
 public class Character implements Target {
     String name;
-    public String getName() {
-        return this.name;
-    }
     chRace race;
-    public String getRace() {
-        return this.race.getRaceName();
-    }
-    ArrayList<chClass> classes = new ArrayList<>();
-    public ArrayList<chClass> getClasses(){return this.classes;}
+    List<chClass> classes = new ArrayList<>();
     int maxHP;
-    public int getMaxHP() {return maxHP;}
     int currHP;
-    public int getCurrHP() {return currHP;}
-    ArrayList<Item> inventory;
-    public ArrayList<Item> getInventory() {return inventory;}
+    List<Item> inventory;
 
     //todo front
 //    public String getClassesString() {
@@ -40,25 +36,10 @@ public class Character implements Target {
 //    }
 
     statGrid stats;
-    public statGrid getStats(){
-        return this.stats;
-    }
     String personality;
-    public String getPersonality() {
-        return personality;
-    }
     String ideals;
-    public String getIdeals() {
-        return ideals;
-    }
     String bonds;
-    public String getBonds() {
-        return bonds;
-    }
     String flaws;
-    public String getFlaws() {
-        return flaws;
-    }
 
     public int getLevel(){
         int _level = 0;
@@ -73,8 +54,9 @@ public class Character implements Target {
         return this.classes.get(this.classes.indexOf(_class)).level;
     }
 
-    public Character(String name, String _race, String _class, statGrid _stats,
-                     String _personality, String _ideals, String _bonds, String _flaws){
+    @JsonCreator
+    public Character(@JsonProperty String name,@JsonProperty String _race,@JsonProperty String _class,@JsonProperty statGrid _stats,
+                     @JsonProperty String _personality,@JsonProperty String _ideals,@JsonProperty String _bonds,@JsonProperty String _flaws){
 
         this.name = name;
         this.race = chRace.getByName(_race);

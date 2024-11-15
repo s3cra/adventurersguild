@@ -4,6 +4,9 @@ import characterData.Language;
 import characterData.Size;
 import characterData.chRace;
 import characterData.statGrid;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Data;
+
 
 public class Elf extends chRace {
 

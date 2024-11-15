@@ -5,7 +5,10 @@ import characterData.races.Orc;
 
 public abstract class chClass {
 
+    static String className;
     int level = 1;
+
+
     public static chClass getByName(String name){
 
         switch (name){

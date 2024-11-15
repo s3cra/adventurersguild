@@ -2,7 +2,11 @@ package characterData;
 
 
 import characterData.races.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public abstract class chRace {
     statGrid stats;
     Size size;
@@ -11,7 +15,8 @@ public abstract class chRace {
     Language[] langs;
 
 
-    protected chRace(statGrid stats, Size size, int speed, boolean darkVision, Language[] langs){
+    protected chRace(statGrid stats, Size size, int speed,
+                      boolean darkVision, Language[] langs){
         this.stats = stats;
         this.size = size;
         this.speed = speed;

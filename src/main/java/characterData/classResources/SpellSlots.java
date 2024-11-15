@@ -1,8 +1,11 @@
 package characterData.classResources;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
 public class SpellSlots {
     Map<Integer, Integer> available = new HashMap<>();
     Map<Integer, Integer> maximum = new HashMap<>();

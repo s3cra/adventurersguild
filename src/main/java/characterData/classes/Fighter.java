@@ -1,11 +1,10 @@
 package characterData.classes;
 
 import characterData.chClass;
+import lombok.Getter;
 
+@Getter
 public class Fighter extends chClass {
 
-
-    public String getClassName(){
-        return "Fighter";
-    }
+    static String className = "Fighter";
 }

@@ -18,10 +18,11 @@ public class CharacterController {
 
     @GetMapping
     public List<Character> getCharacters(){
+        System.out.println(312);
         return this.service.getCharacters();
     }
 
-    @PutMapping("/new")
+    @PostMapping("/new")
     Character saveCharacter(@RequestBody Character character){
         return this.service.saveCharacter(character);
     }
@@ -31,12 +32,12 @@ public class CharacterController {
         return this.service.getCharacter(name);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     Character updateCharacter(@RequestBody Character character){
         return this.service.updateCharacter(character);
     }
 
-    @DeleteMapping("/delete{name}")
+    @DeleteMapping("/{name}")
     void deleteCharacter(@PathVariable("name") String name){
         this.service.deleteCharacter(name);
     }

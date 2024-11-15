@@ -1,6 +1,7 @@
 package ru.dungeons.AdventurersGuild.repository;
 
 import characterData.Character;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
