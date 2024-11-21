@@ -39,7 +39,6 @@ public class CharacterRepository implements CharacterRepositoryI {
     public Character updateCharacter(Character character) {
         return characters.stream().filter(n -> n.getName().equals(character.getName()))
                 .findFirst().map(character1 -> {
-                    System.out.println(1231231231);
                     characters.set(characters.indexOf(character1), character);
                     return character;
                 }).orElse(null);

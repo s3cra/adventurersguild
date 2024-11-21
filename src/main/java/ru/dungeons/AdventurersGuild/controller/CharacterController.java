@@ -18,7 +18,6 @@ public class CharacterController {
 
     @GetMapping
     public List<Character> getCharacters(){
-        System.out.println(312);
         return this.service.getCharacters();
     }
 

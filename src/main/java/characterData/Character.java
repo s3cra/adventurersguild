@@ -8,14 +8,14 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.*;
-import org.springframework.data.annotation.CreatedBy;
 import stuff.Item;
 import stuff.Target;
 
 @Getter
+@AllArgsConstructor
 public class Character implements Target {
+
     String name;
     chRace race;
     List<chClass> classes = new ArrayList<>();
@@ -53,7 +53,7 @@ public class Character implements Target {
         if (!this.classes.contains(_class)) return 0;
         return this.classes.get(this.classes.indexOf(_class)).level;
     }
-
+/*
     @JsonCreator
     public Character(@JsonProperty String name,@JsonProperty String _race,@JsonProperty String _class,@JsonProperty statGrid _stats,
                      @JsonProperty String _personality,@JsonProperty String _ideals,@JsonProperty String _bonds,@JsonProperty String _flaws){
@@ -66,7 +66,7 @@ public class Character implements Target {
         this.ideals = _ideals;
         this.bonds = _bonds;
         this.flaws = _flaws;
-    }
+    }*/
 
     public void takeDamage() {
 
