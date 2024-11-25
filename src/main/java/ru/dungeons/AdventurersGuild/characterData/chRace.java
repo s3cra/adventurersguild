@@ -1,15 +1,15 @@
-package characterData;
+package ru.dungeons.AdventurersGuild.characterData;
 
 
-import characterData.classes.Fighter;
-import characterData.classes.Wizard;
-import characterData.races.*;
+import jakarta.persistence.*;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import ru.dungeons.AdventurersGuild.characterData.races.*;
 import com.fasterxml.jackson.annotation.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
@@ -17,26 +17,27 @@ import lombok.Getter;
 
         @JsonSubTypes.Type(value = Orc.class, name = "Orc") }
 )
+@Entity
 public abstract class chRace {
-    statGrid stats;
+    @Id
+    @GeneratedValue
+    @JsonIgnore
+    Long id;
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "character_id")
+    Character character;
+    @NonNull
     Size size;
+    @NonNull
     int speed;
+    @NonNull
     boolean darkVision;
+    @NonNull
     Language[] langs;
 
 
 
-    public static chRace getByName(String name){
-
-        switch (name){
-            case "Orc":
-                return new Orc();
-            case "Elf":
-                return new Elf();
-            default:
-                return  new Orc();
-        }
-    }
     @JsonIgnore
     public String getRaceName(){
         return "";

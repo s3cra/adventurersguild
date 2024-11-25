@@ -1,4 +1,4 @@
-package characterData.classResources;
+package ru.dungeons.AdventurersGuild.characterData.classResources;
 
 import lombok.Getter;
 

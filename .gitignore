@@ -35,3 +35,14 @@ out/
 
 ### VS Code ###
 .vscode/
+/.gigaide/
+/gradle/
+/src/main/resources/
+/src/main/resources/static/
+/src/main/resources/application.yaml
+/.gitattributes
+/.gitignore
+/build.gradle.kts
+/gradlew
+/gradlew.bat
+/settings.gradle.kts

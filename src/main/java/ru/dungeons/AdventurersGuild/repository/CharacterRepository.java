@@ -1,16 +1,10 @@
 package ru.dungeons.AdventurersGuild.repository;
 
-import characterData.chClass;
-import characterData.classes.Wizard;
-import characterData.races.Elf;
-import characterData.statGrid;
 import org.springframework.stereotype.Repository;
-import characterData.Character;
+import ru.dungeons.AdventurersGuild.characterData.Character;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class CharacterRepository implements CharacterRepositoryI {

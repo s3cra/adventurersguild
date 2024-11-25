@@ -1,6 +1,6 @@
-package characterData.classResources;
+package ru.dungeons.AdventurersGuild.characterData.classResources;
 
-import stuff.Dice;
+import ru.dungeons.AdventurersGuild.stuff.Dice;
 
 public class BardicInspiration {
     int available;

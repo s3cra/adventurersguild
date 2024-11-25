@@ -1,10 +1,9 @@
-package characterData.classes;
+package ru.dungeons.AdventurersGuild.characterData.classes;
 
-import characterData.chClass;
+import jakarta.persistence.Entity;
+import ru.dungeons.AdventurersGuild.characterData.chClass;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public class Fighter extends chClass {

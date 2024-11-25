@@ -1,12 +1,11 @@
 package ru.dungeons.AdventurersGuild.controller;
 
-import characterData.Character;
-import characterData.statGrid;
+import ru.dungeons.AdventurersGuild.characterData.Character;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.dungeons.AdventurersGuild.repository.CharacterRepositoryI;
+import ru.dungeons.AdventurersGuild.serverEntities.Player;
 import ru.dungeons.AdventurersGuild.service.CharacterService;
-import serverEntities.Player;
+import ru.dungeons.AdventurersGuild.service.PlayerService;
 
 import java.util.List;
 
@@ -15,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CharacterController {
     private CharacterService service;
+    private final PlayerService service2;
 
     @GetMapping
     public List<Character> getCharacters(){
@@ -23,6 +23,9 @@ public class CharacterController {
 
     @PostMapping("/new")
     Character saveCharacter(@RequestBody Character character){
+        Player pl = new Player();
+        pl.setCharacters(List.of(character));
+        service2.savePlayer(pl);
         return this.service.saveCharacter(character);
     }
 
@@ -40,4 +43,5 @@ public class CharacterController {
     void deleteCharacter(@PathVariable("name") String name){
         this.service.deleteCharacter(name);
     }
+
 }

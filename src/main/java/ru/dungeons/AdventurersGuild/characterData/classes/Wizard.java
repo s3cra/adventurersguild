@@ -1,18 +1,17 @@
-package characterData.classes;
+package ru.dungeons.AdventurersGuild.characterData.classes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import characterData.chClass;
-import characterData.classResources.SpellSlots;
-import characterData.spells.Spell;
+import ru.dungeons.AdventurersGuild.characterData.chClass;
+import ru.dungeons.AdventurersGuild.characterData.classResources.SpellSlots;
+import ru.dungeons.AdventurersGuild.characterData.spells.Spell;
 import lombok.Getter;
 
 @Getter
 public class Wizard extends chClass {
 
     SpellSlots spellSlots;
-    List<Spell> spells;
 
     public Wizard(int level, SpellSlots slots, List<Spell> spells){
         super("Wizard", level);
@@ -20,11 +19,6 @@ public class Wizard extends chClass {
             this.spellSlots = new SpellSlots();
         } else {
             this.spellSlots = slots;
-        }
-        if (spells == null){
-            this.spells = new ArrayList<>();
-        } else {
-            this.spells = spells;
         }
     }
 

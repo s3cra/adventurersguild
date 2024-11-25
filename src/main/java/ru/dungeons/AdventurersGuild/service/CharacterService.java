@@ -1,7 +1,6 @@
 package ru.dungeons.AdventurersGuild.service;
 
-import characterData.Character;
-import characterData.statGrid;
+import ru.dungeons.AdventurersGuild.characterData.Character;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.dungeons.AdventurersGuild.repository.CharacterRepositoryI;

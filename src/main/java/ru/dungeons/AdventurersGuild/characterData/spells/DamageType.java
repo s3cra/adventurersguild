@@ -1,4 +1,4 @@
-package characterData.spells;
+package ru.dungeons.AdventurersGuild.characterData.spells;
 
 public enum DamageType {
     acid,

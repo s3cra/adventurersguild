@@ -1,4 +1,4 @@
-package stuff;
+package ru.dungeons.AdventurersGuild.stuff;
 
 public enum Dice {
     d4,

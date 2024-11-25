@@ -1,7 +1,7 @@
-package characterData.spells;
+package ru.dungeons.AdventurersGuild.characterData.spells;
 
-import stuff.Dice;
-import stuff.Target;
+import ru.dungeons.AdventurersGuild.stuff.Dice;
+import ru.dungeons.AdventurersGuild.stuff.Target;
 
 public class AttackSpell extends Spell {
     DamageType dmgType;
