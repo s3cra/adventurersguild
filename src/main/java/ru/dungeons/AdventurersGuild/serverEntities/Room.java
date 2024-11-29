@@ -12,10 +12,10 @@ import java.util.List;
 public class Room {
     Long id;
     String campaign;
-    Player host;
+    User host;
     List<Character> playersCharacters;
 
-    public Room(Player host, String campaign){
+    public Room(User host, String campaign){
         this.host = host;
         this.campaign = campaign;
         this.playersCharacters = new ArrayList<>();

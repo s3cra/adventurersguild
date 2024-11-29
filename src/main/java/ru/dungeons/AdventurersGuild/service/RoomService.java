@@ -3,7 +3,7 @@ package ru.dungeons.AdventurersGuild.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.dungeons.AdventurersGuild.repository.RoomRepositoryI;
-import ru.dungeons.AdventurersGuild.serverEntities.Player;
+import ru.dungeons.AdventurersGuild.serverEntities.User;
 import ru.dungeons.AdventurersGuild.serverEntities.Room;
 
 @Service
@@ -15,7 +15,7 @@ public class RoomService {
         return this.repo.getRoom(id);
     }
 
-    public Room hostRoom(Player host, String campaign){
+    public Room hostRoom(User host, String campaign){
         return this.repo.hostRoom(host, campaign);
     }
 }

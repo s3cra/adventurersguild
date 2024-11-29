@@ -25,7 +25,7 @@ public abstract class chRace {
     Long id;
     @JsonIgnore
     @OneToOne
-    @JoinColumn(name = "character_id")
+    @JoinColumn(name = "character_id", referencedColumnName = "id")
     Character character;
     @NonNull
     Size size;

@@ -30,7 +30,7 @@ public abstract class chClass {
     String className;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "character_id")
+    @JoinColumn(name = "character_id", referencedColumnName = "id")
     Character character;
     @OneToMany(cascade = CascadeType.ALL)
     List<Spell> spells;

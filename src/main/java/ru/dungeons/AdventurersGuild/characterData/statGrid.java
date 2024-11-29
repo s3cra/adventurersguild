@@ -15,6 +15,7 @@ public class statGrid {
     @JsonIgnore
     Long id;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "character_id", referencedColumnName = "id")
     Character character;

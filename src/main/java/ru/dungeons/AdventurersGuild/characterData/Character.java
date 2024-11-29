@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import ru.dungeons.AdventurersGuild.serverEntities.Player;
+import ru.dungeons.AdventurersGuild.serverEntities.User;
 import ru.dungeons.AdventurersGuild.stuff.Item;
 import ru.dungeons.AdventurersGuild.stuff.Target;
 
@@ -21,18 +21,18 @@ public class Character implements Target {
     Long id;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "player_id")
-    Player player;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    User user;
     String name;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "character")
     chRace race;
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = chClass.class)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = chClass.class, mappedBy = "character")
     List<chClass> classes = new ArrayList<>();
     int maxHP;
     int currHP;
-    @OneToMany(targetEntity = Item.class)
+    @OneToMany(targetEntity = Item.class, mappedBy = "owner")
     List<Item> inventory;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "character")
     statGrid stats;
     String personality;
     String ideals;

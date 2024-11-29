@@ -14,6 +14,8 @@ public class Item {
     @GeneratedValue
     @JsonIgnore
     Long id;
+    @JsonIgnore
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
     @ManyToOne
     Character owner;
     @JsonProperty("isWeapon")
