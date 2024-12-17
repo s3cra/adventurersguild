@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.dungeons.AdventurersGuild.serverEntities.User;
@@ -14,49 +15,36 @@ import ru.dungeons.AdventurersGuild.stuff.Target;
 
 @Data
 @Entity
-public class Character implements Target {
+@NoArgsConstructor
+public class Character extends InGameEntity implements Target {
 
     @Id
     @GeneratedValue
     Long id;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
     User user;
-    String name;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "character")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "race_id", referencedColumnName = "id")
     chRace race;
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = chClass.class, mappedBy = "character")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "character", fetch = FetchType.EAGER)
     List<chClass> classes = new ArrayList<>();
-    int maxHP;
-    int currHP;
-    @OneToMany(targetEntity = Item.class, mappedBy = "owner")
-    List<Item> inventory;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "character")
-    statGrid stats;
     String personality;
     String ideals;
     String bonds;
     String flaws;
 
     @JsonCreator(mode = JsonCreator.Mode.DEFAULT)
-    public Character(String name, chRace race, List<chClass> classes, int maxHP, int currHP, List<Item> inventory
-            , statGrid stats, String personality, String ideals, String bonds, String flaws) {
-        this.name = name;
+    public Character(@JsonProperty("name") String name,@JsonProperty("race") chRace race,@JsonProperty("classes") List<chClass> classes
+            ,@JsonProperty("maxHP") int maxHP,@JsonProperty("currHP") int currHP,@JsonProperty("inventory") List<Item> inventory
+            ,@JsonProperty("stats") statGrid stats,@JsonProperty("personality") String personality,@JsonProperty("ideals") String ideals
+            ,@JsonProperty("bonds") String bonds,@JsonProperty("flaws") String flaws) {
+        super(name, stats, maxHP, currHP, (ArrayList<Item>) inventory);
         this.race = race;
-        this.race.character = this;
         this.classes = classes;
-        this.classes.stream().forEach(_class -> {
+        this.classes.forEach(_class -> {
             _class.character = this;
         });
-        this.maxHP = maxHP;
-        this.currHP = currHP;
-        this.inventory = inventory;
-        this.inventory.stream().forEach(item -> {
-            item.setOwner(this);
-        });
-        this.stats = stats;
-        this.stats.character = this;
         this.personality = personality;
         this.ideals = ideals;
         this.bonds = bonds;

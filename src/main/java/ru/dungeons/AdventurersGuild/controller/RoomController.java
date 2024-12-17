@@ -17,7 +17,7 @@ public class RoomController {
     }
 
     @PostMapping("/new")
-    Room hostRoom(){
+    Room hostRoom(@RequestBody String campaign){
         //TODO
         return null;
     }

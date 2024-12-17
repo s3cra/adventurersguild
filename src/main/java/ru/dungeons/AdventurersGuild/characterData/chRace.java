@@ -18,15 +18,12 @@ import lombok.AllArgsConstructor;
         @JsonSubTypes.Type(value = Orc.class, name = "Orc") }
 )
 @Entity
+@Table(name = "races")
 public abstract class chRace {
     @Id
     @GeneratedValue
     @JsonIgnore
     Long id;
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "character_id", referencedColumnName = "id")
-    Character character;
     @NonNull
     Size size;
     @NonNull

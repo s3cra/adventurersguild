@@ -2,6 +2,8 @@ package ru.dungeons.AdventurersGuild.characterData;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import ru.dungeons.AdventurersGuild.characterData.classResources.SpellSlots;
 import ru.dungeons.AdventurersGuild.characterData.classes.*;
 import ru.dungeons.AdventurersGuild.characterData.spells.Spell;
@@ -21,6 +23,9 @@ import java.util.List;
         @JsonSubTypes.Type(value = Fighter.class, name = "Fighter") }
 )
 @Entity
+@SuperBuilder
+@NoArgsConstructor
+@Table(name = "classes")
 public abstract class chClass {
     @Id
     @GeneratedValue
@@ -30,9 +35,8 @@ public abstract class chClass {
     String className;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "character_id", referencedColumnName = "id")
     Character character;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     List<Spell> spells;
     int level;
 

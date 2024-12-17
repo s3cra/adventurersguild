@@ -45,6 +45,6 @@ public class UserService {
                 new UsernamePasswordAuthenticationToken(user.getLogin(),user.getPassword()));
         if (authentication.isAuthenticated())
             return jwtService.generateToken(user.getLogin());
-        return "suckcock";
+        return "bad";
     }
 }

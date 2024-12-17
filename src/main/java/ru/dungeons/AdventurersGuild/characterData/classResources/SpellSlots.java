@@ -1,42 +1,52 @@
 package ru.dungeons.AdventurersGuild.characterData.classResources;
 
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import ru.dungeons.AdventurersGuild.characterData.chClass;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@Getter
+@Data
+@Entity
 public class SpellSlots {
-    Map<Integer, Integer> available = new HashMap<>();
-    Map<Integer, Integer> maximum = new HashMap<>();
+    @Id
+    @GeneratedValue
+    private Long id;
+    @OneToOne
+    private chClass owner;
+    List<Integer> available;
+    List<Integer> maximum;
 
     public SpellSlots(){
-        this.maximum.put(1,2);
-        for (int i=2; i<10; i++ ){
-            this.maximum.put(i,0);
-        }
-        this.available.putAll(this.maximum);
+        this.maximum = List.of(2,0,0,0,0,0,0,0,0,0);
+        this.available = List.copyOf(this.maximum);
     }
 
     public void refill(){
-        this.available.putAll(this.maximum);
+        this.available = List.copyOf(this.maximum);
     }
 
     public boolean spend(int _level, int _quantity){
+        _level--;
         if (this.available.get(_level) < _quantity)return false;
-        this.available.put(_level,Math.max(Math.min(this.maximum.get(_level), this.available.get(_level) - _quantity),0));
+        this.available.set(_level,Math.max(Math.min(this.maximum.get(_level), this.available.get(_level) - _quantity),0));
         return true;
     }
 
 
     public void add(int _level, int _quantity){
-        this.available.put(_level,Math.max(Math.min(this.maximum.get(_level), this.available.get(_level) + _quantity),0));
+        _level--;
+        this.available.set(_level,Math.max(Math.min(this.maximum.get(_level), this.available.get(_level) + _quantity),0));
     }
 
     public String toString(){
         String _slots = "";
         for (int i=1; i<10; i++ ){
-            _slots+= i + "Level: [" + this.available.get(i) + "/" + this.maximum.get(i) + "]\n";
+            _slots+= i + "Level: [" + this.available.get(i-1) + "/" + this.maximum.get(i-1) + "]\n";
         }
         return _slots;
     }

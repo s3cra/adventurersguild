@@ -16,7 +16,7 @@ public class UserController {
     @PostMapping("/register")
     public String createUser(@RequestBody User user){
         service.createUser(user);
-        return "ty loh";
+        return "success";
     }
 
     @GetMapping

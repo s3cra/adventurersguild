@@ -4,20 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import ru.dungeons.AdventurersGuild.characterData.Character;
+import ru.dungeons.AdventurersGuild.characterData.InGameEntity;
 import ru.dungeons.AdventurersGuild.characterData.spells.Spell;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
 @Entity
+@Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue
     @JsonIgnore
     Long id;
     @JsonIgnore
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
     @ManyToOne
-    Character owner;
+    InGameEntity owner;
     @JsonProperty("isWeapon")
     boolean isWeapon;
     @JsonProperty("isArmor")

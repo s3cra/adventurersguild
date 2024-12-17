@@ -9,6 +9,8 @@ import java.util.Map;
 
 @Data
 @Entity
+@NoArgsConstructor
+@Table(name = "stat_grids")
 public class statGrid {
     @Id
     @GeneratedValue
@@ -17,8 +19,8 @@ public class statGrid {
 
     @JsonIgnore
     @OneToOne
-    @JoinColumn(name = "character_id", referencedColumnName = "id")
-    Character character;
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    InGameEntity owner;
 
     @NonNull
     Integer strength;

@@ -3,11 +3,14 @@ package ru.dungeons.AdventurersGuild.characterData.spells;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.dungeons.AdventurersGuild.characterData.chClass;
 import ru.dungeons.AdventurersGuild.stuff.Item;
 
 @Data
 @Entity
+@NoArgsConstructor
+@Table(name = "spells")
 public abstract class Spell {
     @JsonIgnore
     @Id
