@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="athletics">Athletics</string>
+    <string name="acrobatics">Acrobatics</string>
+    <string name="sleight">Sleight of Hand</string>
+    <string name="stealth">Stealth</string>
+    <string name="arcana">Arcana</string>
+    <string name="history">History</string>
+    <string name="investigation">Investigation</string>
+    <string name="nature">Nature</string>
+    <string name="religion">Religion</string>
+    <string name="animal">Animal Handling</string>
+    <string name="insight">Insight</string>
+    <string name="medicine">Medicine</string>
+    <string name="perception">Perception</string>
+    <string name="survival">Survival</string>
+    <string name="deception">Deception</string>
+    <string name="intimidation">Intimidation</string>
+    <string name="performance">Performance</string>
+    <string name="persuasion">Persuasion</string>
+
+    <string-array name="skills">
+        <item>@string/athletics</item>
+        <item>@string/acrobatics</item>
+        <item>@string/sleight</item>
+        <item>@string/stealth</item>
+        <item>@string/arcana</item>
+        <item>@string/history</item>
+        <item>@string/investigation</item>
+        <item>@string/nature</item>
+        <item>@string/religion</item>
+        <item>@string/animal</item>
+        <item>@string/insight</item>
+        <item>@string/medicine</item>
+        <item>@string/perception</item>
+        <item>@string/survival</item>
+        <item>@string/deception</item>
+        <item>@string/intimidation</item>
+        <item>@string/performance</item>
+        <item>@string/persuasion</item>
+    </string-array>
+</resources>

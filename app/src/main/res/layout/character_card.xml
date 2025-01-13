@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/material_dynamic_neutral50"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"
+                android:gravity="fill_vertical"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                    <TextView
+                        android:id="@+id/levelBarCharacterInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="@+id/imageView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/nameBarCharacterInfo"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aclonica"
+                        android:text="Name"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/raceBarCharacterInfo"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aclonica"
+                        android:text="Race"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/classBarCharacterInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/aclonica"
+                    android:text="Classes"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="fill_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/STRtxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="STR"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/DEXtxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="DEX"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/CONtxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="CON"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/INTtxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="INT"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/WIStxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="WIS"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/CHAtxt"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="CHA"
+                        android:textSize="11.5sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="fill_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/strValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/dexValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/conValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/intValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/wisValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/chaValueMini"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/aclonica"
+                        android:gravity="center_horizontal"
+                        android:text="00"
+                        android:textSize="11.5sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

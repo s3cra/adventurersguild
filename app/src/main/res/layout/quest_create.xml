@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="4dp"
+    android:paddingTop="8dp"
+    >
+
+    <Button
+        android:id="@+id/back_qc"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Back"
+        android:onClick="toQuestsList"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/namebar_quest_editor_layout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_qc"
+        android:layout_marginTop="15dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/namebar_quest_editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Quest name"
+            android:maxLines="1"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/xp_gain_quest_editor_layout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/namebar_quest_editor_layout"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/xp_gain_quest_editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="XP reward"
+            android:maxLines="1"
+            android:inputType="numberDecimal"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/related_locations_list_title_quest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/xp_gain_quest_editor_layout"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:text="Choose related locations."
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/related_locations_list_quest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/related_locations_list_title_quest"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:scrollbars="horizontal"
+        android:orientation="horizontal"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Confirm"
+        android:onClick="createQuest"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
